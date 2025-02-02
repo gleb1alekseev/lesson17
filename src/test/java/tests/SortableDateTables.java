@@ -16,8 +16,8 @@ public class SortableDateTables {
         driver.get("http://the-internet.herokuapp.com/tables");
 
         WebElement t1 = driver.findElement(By.xpath("//*[@id=\"table1\"]/tbody/tr[1]/td[1]"));
-        String actual1 = "Smith";
-        Assert.assertEquals(actual1, t1.getText());
+        String expected1 = "Smith";
+        Assert.assertEquals(t1.getText(), expected1);
     }
 
     @Test
@@ -27,8 +27,8 @@ public class SortableDateTables {
         driver.get("http://the-internet.herokuapp.com/tables");
 
         WebElement t2 = driver.findElement(By.xpath("//*[@id=\"table1\"]/tbody/tr[2]/td[3]"));
-        String actual2 = "fbach@yahoo.com";
-        Assert.assertEquals(actual2, t2.getText());
+        String expected2 = "fbach@yahoo.com";
+        Assert.assertEquals(t2.getText(), expected2);
     }
 
     @Test
@@ -38,7 +38,7 @@ public class SortableDateTables {
         driver.get("http://the-internet.herokuapp.com/tables");
 
         WebElement t3 = driver.findElement(By.xpath("//*[@id=\"table1\"]/tbody/tr[4]/td[5]"));
-        String actual3 = "http://www.timconway.com";
-        Assert.assertEquals(actual3, t3.getText());
+        String expected3 = "http://www.timconway.com";
+        Assert.assertEquals(t3.getText(), expected3);
     }
 }
