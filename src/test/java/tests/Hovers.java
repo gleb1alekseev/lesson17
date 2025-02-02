@@ -24,7 +24,8 @@ public class Hovers {
         action.moveToElement(driver.findElement(By.xpath("//*[@id=\"content\"]/div/div[1]/div/a")))
                 .click().perform();
 
-        Assert.assertEquals(driver.getCurrentUrl(), "https://the-internet.herokuapp.com/users/1");
+        String expectedUrl1 = "https://the-internet.herokuapp.com/users/1";
+        Assert.assertEquals(driver.getCurrentUrl(), expectedUrl1);
     }
 
     @Test
@@ -39,7 +40,8 @@ public class Hovers {
         action.moveToElement(driver.findElement(By.xpath("//*[@id=\"content\"]/div/div[2]/div/a")))
                 .click().perform();
 
-        Assert.assertEquals(driver.getCurrentUrl(), "https://the-internet.herokuapp.com/users/2");
+        String expectedUrl2 = "https://the-internet.herokuapp.com/users/2";
+        Assert.assertEquals(driver.getCurrentUrl(), expectedUrl2);
     }
 
     @Test
@@ -54,6 +56,7 @@ public class Hovers {
         action.moveToElement(driver.findElement(By.xpath("//*[@id=\"content\"]/div/div[3]/div/a")))
                 .click().perform();
 
-        Assert.assertEquals(driver.getCurrentUrl(), "https://the-internet.herokuapp.com/users/3");
+        String expectedUrl3 = "https://the-internet.herokuapp.com/users/3";
+        Assert.assertEquals(driver.getCurrentUrl(), expectedUrl3);
     }
 }
