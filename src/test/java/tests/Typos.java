@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 public class Typos {
 
     @Test
-    public void typos() {
+    public void typosCheckGrammar() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("http://the-internet.herokuapp.com/typos");
