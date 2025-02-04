@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class AddRemoveElement {
@@ -21,10 +22,9 @@ public class AddRemoveElement {
         WebElement addElement = driver.findElement(By.xpath("//button[text()='Add Element']"));
         addElement.click();
         addElement.click();
-
         WebElement deleteElement = driver.findElement(By.xpath("//button[text()='Delete']"));
         deleteElement.click();
-
-        Assert.assertEquals(driver.findElements(By.xpath("//button[text()='Delete']")).size(), 1);
+        List<WebElement> deletedButtons = driver.findElements(By.xpath("//button[text()='Delete']"));
+        Assert.assertEquals(deletedButtons.size(), 1);
     }
 }

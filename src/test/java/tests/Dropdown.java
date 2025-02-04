@@ -11,47 +11,33 @@ import org.testng.annotations.Test;
 public class Dropdown {
 
     @Test
-    public void dropdown1() {
+    public void dropdownCheckTest1() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("http://the-internet.herokuapp.com/dropdown");
-
-        WebElement element = driver.findElement(By.id("dropdown"));
-        element.click();
-
-        Select dropdown = new Select(element);
-
-        dropdown.getOptions();
-
-        dropdown.selectByVisibleText("Option 1");
-
-        if (!element.isSelected()){
-            element.click();
+        WebElement dropdown1 = driver.findElement(By.id("dropdown"));
+        dropdown1.click();
+        Select select = new Select(dropdown1);
+        select.selectByVisibleText("Option 1");
+        if (!dropdown1.isSelected()){
+            dropdown1.click();
         }
-
-        Assert.assertEquals("Option 1", dropdown.getFirstSelectedOption().getText());
+        Assert.assertEquals("Option 1", select.getFirstSelectedOption().getText());
     }
 
     @Test
-    public void dropdown2() {
+    public void dropdownCheckTest2() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("http://the-internet.herokuapp.com/dropdown");
-
-        WebElement element = driver.findElement(By.id("dropdown"));
-        element.click();
-
-        Select dropdown = new Select(element);
-
-//        dropdown.getOptions();
-
-        dropdown.selectByVisibleText("Option 2");
-
-        if (!element.isSelected()){
-            element.click();
+        WebElement dropdown2 = driver.findElement(By.id("dropdown"));
+        dropdown2.click();
+        Select select = new Select(dropdown2);
+        select.selectByVisibleText("Option 2");
+        if (!dropdown2.isSelected()){
+            dropdown2.click();
         }
-
-        Assert.assertEquals("Option 2", dropdown.getFirstSelectedOption().getText());
+        Assert.assertEquals("Option 2", select.getFirstSelectedOption().getText());
     }
 }
 

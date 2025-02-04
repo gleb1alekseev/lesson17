@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 public class Checkboxes {
 
     @Test
-    public void checkbox1() {
+    public void checkUncheckCheckboxTest1() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("http://the-internet.herokuapp.com/checkboxes");
@@ -22,7 +22,7 @@ public class Checkboxes {
     }
 
     @Test
-    public void checkbox2() {
+    public void checkUncheckCheckboxTest2() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("http://the-internet.herokuapp.com/checkboxes");

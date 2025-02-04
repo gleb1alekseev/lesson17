@@ -16,16 +16,13 @@ import java.util.concurrent.TimeUnit;
 public class Notification {
 
     @Test
-    public void notification1() throws InterruptedException {
+    public void notificationCheckTest1() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("http://the-internet.herokuapp.com/notification_message_rendered");
-
-        WebElement we = driver.findElement(By.xpath("//*[@id=\"content\"]/div/p/a"));
+        WebElement we = driver.findElement(By.xpath("//*[@href=\"/notification_message\"]"));
         we.click();
-
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-
         WebElement we1 = driver.findElement(By.xpath("//*[@id=\"flash\"]"));
         String expected = "Action successful";
         String actualText = we1.getText().trim().replace("\n", "").replace("\r", "");
@@ -34,16 +31,13 @@ public class Notification {
     }
 
     @Test
-    public void notification2() throws InterruptedException {
+    public void notificationCheckTest2() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("http://the-internet.herokuapp.com/notification_message_rendered");
-
-        WebElement we = driver.findElement(By.xpath("//*[@id=\"content\"]/div/p/a"));
+        WebElement we = driver.findElement(By.xpath("//*[@href=\"/notification_message\"]"));
         we.click();
-
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-
         WebElement we1 = driver.findElement(By.xpath("//*[@id=\"flash\"]"));
         String expected = "Action unsuccesful, please try again";
         String actualText = we1.getText().trim().replace("\n", "").replace("\r", "");
