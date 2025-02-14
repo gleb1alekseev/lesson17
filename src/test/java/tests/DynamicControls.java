@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
 import java.util.List;
@@ -25,13 +26,14 @@ public class DynamicControls {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id=\"checkbox\"]")));
         List<WebElement> checkboxes = driver.findElements(By.xpath("//*[@id=\"checkbox\"]"));
-        WebElement input = driver.findElement(By.xpath("//*[@id=\"input-example\"]/input"));
+        WebElement input = driver.findElement(By.xpath("//input"));
         WebElement enableButton = driver.findElement(By.xpath("//*[@id=\"input-example\"]/button"));
         enableButton.click();
         wait.until(ExpectedConditions.elementToBeClickable(input));
-        Assert.assertTrue(checkboxes.isEmpty());
-        Assert.assertTrue(input.isDisplayed());
-        Assert.assertTrue(input.isEnabled());
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertTrue(checkboxes.isEmpty());
+        softAssert.assertTrue(input.isDisplayed());
+        softAssert.assertTrue(input.isEnabled());
         driver.quit();
     }
 }

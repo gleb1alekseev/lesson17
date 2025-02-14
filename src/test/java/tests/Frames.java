@@ -17,9 +17,9 @@ public class Frames {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("http://the-internet.herokuapp.com/iframe");
-        WebElement iframe = driver.findElement(By.xpath("//iframe[@id='mce_0_ifr']"));
+        WebElement iframe = driver.findElement(By.id("mce_0_ifr"));
         driver.switchTo().frame(iframe);
-        WebElement paragraph = driver.findElement(By.xpath("//body[@id='tinymce']/p"));
+        WebElement paragraph = driver.findElement(By.cssSelector("#tinymce p"));
         String text = paragraph.getText();
         Assert.assertEquals(text, "Your content goes here.");
         driver.switchTo().defaultContent();

@@ -18,13 +18,13 @@ public class FileUpload {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("http://the-internet.herokuapp.com/upload");
-        String filePath = "D:\\Photo\\test.jpg";
-        WebElement selectFileButton = driver.findElement(By.xpath("//*[@id=\"file-upload\"]"));
+        String filePath = "C:\\Users\\gleb1\\IdeaProjects\\lesson17\\src\\test\\resources\\test.jpg";
+        WebElement selectFileButton = driver.findElement(By.id("file-upload"));
         selectFileButton.sendKeys(filePath);
-        WebElement uploadButton = driver.findElement(By.xpath("//*[@id=\"file-submit\"]"));
+        WebElement uploadButton = driver.findElement(By.id("file-submit"));
         uploadButton.click();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement uploadMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"content\"]/div/h3")));
+        WebElement uploadMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h3")));
         Assert.assertEquals(uploadMessage.getText(), "File Uploaded!");
     }
 }
